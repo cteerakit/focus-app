@@ -19,15 +19,19 @@
 
     <main class="dashboard">
         <div class="greeting animate-in">
-            <span id="greeting-text">Good Evening</span>
+            <span id="greeting-text"></span>
         </div>
 
         <div class="clock-container animate-in" style="animation-delay: 0.2s;">
-            <div id="time">00:00</div>
-            <div id="date">WEDNESDAY, FEBRUARY 11</div>
+            <div id="time"></div>
+            <div id="date"></div>
+            <div id="quote-container" class="quote-container">
+                <span id="quote-text"></span>
+                <span id="quote-author"></span>
+            </div>
         </div>
 
-        <div class="controls animate-in" style="animation-delay: 0.4s;">
+        <div id="controls" class="controls animate-in start-state" style="animation-delay: 0.4s;">
             <div class="glass-panel">
                 <button class="bg-btn active" data-bg="bg-1" title="Mountain High"
                     style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=100&q=80');"></button>
@@ -37,11 +41,80 @@
                     style="background-image: url('https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?auto=format&fit=crop&w=100&q=80');"></button>
                 <button class="bg-btn" data-bg="bg-4" title="Misty Woods"
                     style="background-image: url('https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?auto=format&fit=crop&w=100&q=80');"></button>
+                <div class="divider"></div>
+                <button id="format-toggle" class="format-btn" title="Toggle 12/24h Format">
+                    24H
+                </button>
+                <button id="quote-toggle" class="format-btn active" title="Toggle Inspirational Quote">
+                    QUOTE
+                </button>
+                <div class="divider"></div>
+                <button id="note-toggle" class="note-toggle-btn" title="Quick Note">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    </svg>
+                </button>
+                <button id="timer-toggle" class="timer-toggle-btn" title="Focus Timer">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </button>
+                <div class="divider"></div>
+                <div class="theme-presets">
+                    <button class="theme-btn" data-color="#6366f1" style="background: #6366f1;" title="Indigo"></button>
+                    <button class="theme-btn" data-color="#10b981" style="background: #10b981;"
+                        title="Emerald"></button>
+                    <button class="theme-btn" data-color="#f43f5e" style="background: #f43f5e;" title="Rose"></button>
+                    <button class="theme-btn" data-color="#f59e0b" style="background: #f59e0b;" title="Amber"></button>
+                    <button class="theme-btn" data-color="#0ea5e9" style="background: #0ea5e9;" title="Sky"></button>
+                    <button class="theme-btn" data-color="#8b5cf6" style="background: #8b5cf6;" title="Violet"></button>
+                </div>
+            </div>
+        </div>
+
+        <button id="master-toggle" class="master-toggle-btn animate-in start-state" style="animation-delay: 0.4s;"
+            title="Toggle Menu Visibility">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <path class="eye-open" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle class="eye-open" cx="12" cy="12" r="3"></circle>
+                <path class="eye-closed"
+                    d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                </path>
+                <line class="eye-closed" x1="1" y1="1" x2="23" y2="23"></line>
+            </svg>
+        </button>
+
+        <div id="note-window" class="note-window" style="display: none;">
+            <div class="note-header" id="note-header">
+                <span class="note-title">Quick Note</span>
+                <button id="note-close" class="note-close-btn">&times;</button>
+            </div>
+            <textarea id="note-area" placeholder="Type your notes here..."></textarea>
+        </div>
+
+        <div id="timer-window" class="timer-window" style="display: none;">
+            <div class="timer-header" id="timer-header">
+                <span class="timer-title">Focus Timer</span>
+                <button id="timer-close" class="timer-close-btn">&times;</button>
+            </div>
+            <div class="timer-content">
+                <div id="timer-display">25:00</div>
+                <div class="timer-presets">
+                    <button class="preset-btn" data-time="25">25m</button>
+                    <button class="preset-btn" data-time="45">45m</button>
+                    <button class="preset-btn" data-time="60">60m</button>
+                </div>
+                <div class="timer-controls">
+                    <button id="timer-start" class="timer-main-btn">Start</button>
+                    <button id="timer-reset" class="timer-sec-btn">Reset</button>
+                </div>
             </div>
         </div>
     </main>
 
-    <script src="script.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
