@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Dashboard</title>
+    <meta name="description" content="A premium minimalist productivity dashboard with real-time clock and dynamic backgrounds.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="bg-container">
+        <div id="bg-layer-1" class="bg-layer" style="opacity: 1;"></div>
+        <div id="bg-layer-2" class="bg-layer" style="opacity: 0;"></div>
+        <div class="bg-overlay"></div>
+    </div>
+
+    <main class="dashboard">
+        <div class="greeting animate-in">
+            <span id="greeting-text">Good Evening</span>
+        </div>
+
+        <div class="clock-container animate-in" style="animation-delay: 0.2s;">
+            <div id="time">00:00</div>
+            <div id="date">WEDNESDAY, FEBRUARY 11</div>
+        </div>
+
+        <div class="controls animate-in" style="animation-delay: 0.4s;">
+            <div class="glass-panel">
+                <button class="bg-btn active" data-bg="gradient-1" title="Neon Night" style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);"></button>
+                <button class="bg-btn" data-bg="gradient-2" title="Sunset Bloom" style="background: linear-gradient(135deg, #4c1d95 0%, #db2777 100%);"></button>
+                <button class="bg-btn" data-bg="gradient-3" title="Emerald Sea" style="background: linear-gradient(135deg, #064e3b 0%, #059669 100%);"></button>
+                <button class="bg-btn" data-bg="gradient-4" title="Deep Space" style="background: linear-gradient(135deg, #000000 0%, #434343 100%);"></button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
