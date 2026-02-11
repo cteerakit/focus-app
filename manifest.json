@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "Focus Dashboard",
+    "version": "1.0.0",
+    "description": "A premium minimalist productivity dashboard with real-time clock and dynamic backgrounds.",
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    },
+    "action": {
+        "default_title": "Focus Dashboard"
+    },
+    "permissions": [
+        "storage"
+    ]
+}
