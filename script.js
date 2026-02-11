@@ -9,7 +9,7 @@ let activeLayer = 0;
 // Update Clock & Date
 function updateDashboard() {
     const now = new Date();
-    
+
     // Time
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
@@ -18,7 +18,7 @@ function updateDashboard() {
     // Date
     const days = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
     const months = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'];
-    
+
     dateEl.textContent = `${days[now.getDay()]}, ${months[now.getMonth()]} ${now.getDate()}`;
 
     // Greeting
@@ -30,10 +30,10 @@ function updateDashboard() {
 
 // Background Management
 const backgrounds = {
-    'gradient-1': 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%)',
-    'gradient-2': 'linear-gradient(135deg, #4c1d95 0%, #db2777 100%)',
-    'gradient-3': 'linear-gradient(135deg, #064e3b 0%, #059669 100%)',
-    'gradient-4': 'linear-gradient(135deg, #000000 0%, #434343 100%)'
+    'bg-1': 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80")', // Mountains
+    'bg-2': 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("https://images.unsplash.com/photo-1477346611705-65d1883cee1e?auto=format&fit=crop&w=1920&q=80")', // Forest
+    'bg-3': 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?auto=format&fit=crop&w=1920&q=80")', // Galaxy
+    'bg-4': 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?auto=format&fit=crop&w=1920&q=80")'  // Foggy Forest
 };
 
 function switchBackground(bgKey) {
@@ -41,12 +41,12 @@ function switchBackground(bgKey) {
     const bgUrl = backgrounds[bgKey];
 
     // Set next layer background
-    bgLayers[nextLayer].style.background = bgUrl;
-    
+    bgLayers[nextLayer].style.backgroundImage = bgUrl;
+
     // Transition
     bgLayers[nextLayer].style.opacity = '1';
     bgLayers[activeLayer].style.opacity = '0';
-    
+
     activeLayer = nextLayer;
 }
 
@@ -68,4 +68,4 @@ setInterval(updateDashboard, 1000);
 updateDashboard();
 
 // Set initial background for layer 1
-bgLayers[0].style.background = backgrounds['gradient-1'];
+bgLayers[0].style.backgroundImage = backgrounds['bg-1'];
