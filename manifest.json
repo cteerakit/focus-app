@@ -8,8 +8,5 @@
     },
     "action": {
         "default_title": "Focus Dashboard"
-    },
-    "permissions": [
-        "storage"
-    ]
+    }
 }
